@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Eventos delegados</h1>
+    <h1 style="color:blue" id="resultado"></h1>
+    <button type="button" onclick="asociarEvento()">Asociar Evento</button>
+
+    <button type="button" id="botonacciones">Realizar cosas</button>
+    <button type="button" id="boton2">Otro boton</button>
+    <script>
+        //al cargar la página, asociamos eventos dinamicamente
+        window.onload = function() {
+            //buscamos los ontroles para asociar
+            var boton = document.getElementById("botonacciones");
+            var boton2 = document.getElementById("boton2");
+            boton.addEventListener("click",mostrarMensaje);
+            boton2.addEventListener("click",mostrarMensaje2);
+
+        }
+
+
+
+        //VARIABLE PARA SABER EL NUMERO DE EVENTOS
+        var contador = 0;
+        function asociarEvento() {
+            contador +=1;
+            document.getElementById("resultado").innerText = "Eventos asociados" + contador;
+            //Comenzamos con funciones declarativas 
+            //vamos a utilizar funciones externas
+            //buscamos el boton para asociar eventos
+            var boton = document.getElementById("botonacciones");
+            // boton.onclick = mostrarMensaje;
+            // boton.onclick = mostrarMensaje;
+            //comentarios en bloque: CONTROL + K + C
+            //descomentar en bloque: CONTROL + K + U
+            //asociamos la funcion con addeventlistener
+            // boton.addEventListener("click", mostrarMensaje);
+            // boton.addEventListener("click", mostrarMensaje2);
+            //ahora vamos a probar lo mismo pero con funciones anonimas
+
+
+            //anonimas
+            // boton.onclick = function() {
+            //     alert("mensaje en funcion anónima");
+            // }
+            var boton2 = document.getElementById("boton2");
+            boton.addEventListener("click",mostrarMensaje);
+            boton2.addEventListener("click",mostrarMensaje2);
+            // boton2.addEventListener("click",function() {
+            //     alert("mensaje en funcion anónima otrobot" + this.innerText);
+            // });
+            // //existe pila de llamada ya que no tiene nombre
+            // boton.addEventListener("click",function() {
+            //     alert("mensaje en funcion anónima addevent" + this.innerText);
+            // });
+            
+        }
+        //MOSTRAR UN MENSAJE
+        //this se refiere al objeto que realiza la llamada
+        function mostrarMensaje(){
+            alert("mensaje molesto..." + this.innerText);
+            this.style.backgroundColor = "yellow";
+        }
+
+        function mostrarMensaje2(){
+            alert("mensaje molesto...222222");
+            this.style.backgroundColor = "green";
+        }
+    </script>
+</body>
+</html>

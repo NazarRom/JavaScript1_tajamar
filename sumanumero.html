@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Sumar botones</h1>
+    <button type="button">2</button>
+    <button type="button">5</button>
+    <button type="button">8</button>
+    <button type="button">3</button>
+    <button type="button">6</button>
+    <button type="button">8</button>
+    <h1 style="color:blue;" id="resultado"></h1>
+    <script>
+        var suma = 0;
+        window.onload = function () {
+            //buscamos todos los objetos de tipo button
+            var botones = document.getElementsByTagName("button");
+            
+            //tenemos dos tipos de recorrer los indices in
+            for(var indice in botones){
+                console.log("inidice " + indice);
+            }
+            //recorrer los objetos of
+            for(var boton of botones){
+                console.log("boton " + boton.innerText);
+            }
+            for (var i = 0; i < botones.length; i++) {
+                //recuperamos cada boton por individual
+                var boton = botones[i];
+                //asociamos el boton al evento
+                boton.addEventListener("click", function () {
+                    this.style.backgroundColor = "red";
+                    var numero = parseInt(this.innerText);
+                    suma = suma + numero;
+                    document.getElementById("resultado").innerText = "la suma es " + suma;
+                });
+            }
+
+
+
+            // var boton1 = document.getElementById("boton1");
+            // var boton2 = document.getElementById("boton2");
+            // var boton3 = document.getElementById("boton3");
+            // var boton4 = document.getElementById("boton4");
+            // boton1.addEventListener("click",sumarBoton);
+            // boton2.addEventListener("click",sumarBoton);
+            // boton3.addEventListener("click",sumarBoton);
+            // boton4.addEventListener("click",sumarBoton);
+
+
+        }
+        // function sumarBoton() {
+        //     var numero = parseInt(this.innerText);
+        //     suma = suma + numero;
+        //     document.getElementById("resultado").innerText = "la suma es " + suma;
+
+        // }
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Gener controles</h1>
+    <input type="range" id="rango" min="1" max="14" value="1" onchange="crearImagines()"/>
+    <p id="valorrango">1</p>
+    <div id="capa"></div> 
+    <script>
+        function crearImagines() {
+            var capa = document.getElementById("capa");
+            var rango = document.getElementById("rango");
+            document.getElementById("valorrango").innerText = rango.value;
+            var numeroImagines = parseInt(rango.value);
+            //limpiamos el parent para iniciar nuevas imagines
+            capa.innerText = "";
+            //bucle para dibujar x imagines
+            for(var i = 1; i <= numeroImagines; i++){
+                var imagen = document.createElement("img");
+                //asignamos las propiedades que deseemos
+                imagen.src = "./images/miata.jpg";
+                //agregamos al parent el objeto
+                capa.appendChild(imagen);
+                imagen.addEventListener("click",function() {
+                    this.src = "./images/miata2.jpg";
+                    //BUSCAMOS EL PARENT
+                    var padre = document.getElementById("capa");
+                    //igual que tenemos appendChild() de un
+                    //parent, también tenemos removeChild()
+                    padre.removeChild(this);
+                });
+            }
+        }
+    </script>
+</body>
+</html>

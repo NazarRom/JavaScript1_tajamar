@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Mayor de tres </h1>
+    <label>numero 1</label>
+    <input type="text" id="numero1">
+    <label>numero 2</label>
+    <input type="text" id="numero2">
+    <label>numero 3</label>
+    <input type="text" id="numero3">
+    <button type="button" onclick="mayorMenor()">Result</button>
+</body>
+<h2 id="resultado"></h2>
+<script>
+    function mayorMenor() {
+        var caja1 = document.getElementById("numero1");
+        var caja2 = document.getElementById("numero2");
+        var caja3 = document.getElementById("numero3");
+
+        var num1 = parseInt(caja1.value);
+        var num2 = parseInt(caja2.value);
+        var num3 = parseInt(caja3.value);
+
+        var mayor = 0;
+        var menir = 0;
+        var intermedio = 0;
+        if (num1 >= num2 && num1 >= num3){
+            mayor = num1;
+        } else if (num2 >= num1 && num2 >= num3){
+            mayor = num2;
+        } else {
+            mayor = num3;
+        }
+
+        if (num1 <= num2 && num1 <= num3){
+            menor = num1;
+        }else if (num2 <= num1 && num2 <= num3){
+            menor = num2;
+        } else {
+            menor = num3;
+        }
+
+        var suma = num1 + num2 + num3;
+        intermedio = suma - mayor - menor
+        document.getElementById("resultado").innerText = "menor " + menor + " intermedio " + intermedio + " mayor " + mayor;
+
+        
+
+        // array = [numero1, numero2, numero3];
+
+        /*var lista = [numero1, numero2, numero3];
+        var n, i, k, aux;
+        n = lista.length;
+        console.log(lista); // Mostramos, por consola, la lista desordenada
+        // Algoritmo de burbuja
+        for (k = 1; k < n; k++) {
+            for (i = 0; i < (n - k); i++) {
+                if (lista[i] > lista[i + 1]) {
+                    aux = lista[i];
+                    lista[i] = lista[i + 1];
+                    lista[i + 1] = aux;
+                }
+            }
+        }
+
+        console.log(lista); // Mostramos, por consola, la lista ya ordenada
+
+
+
+
+        document.getElementById("resultado").innerHTML = lista;*/
+
+    }
+</script>
+
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Sumar numeros random</h1>
+
+    <input type="radio" id="par" name="radios" />Par
+
+    <input type="radio" id="impar" name="radios" />Impar</br>
+
+    <input style="background-color:green;" type="text" id="caja1" name="num" /></br>
+
+    <input style="background-color:purple;" type="text" id="caja2" name="num" /></br>
+
+    <input style="background-color:green;" type="text" id="caja3" name="num" /></br>
+
+    <input style="background-color:purple;" type="text" id="caja4" name="num" /></br>
+
+    <h1 id="resultado"></h1>
+
+
+    <script>
+        window.onload = function () {
+
+            var cajas = document.getElementsByName("num");//devuelve un array
+
+            console.log(cajas);
+
+            for (var i = 0; i < cajas.length; i++) {
+                var random = Math.floor(Math.random() * 20);
+                cajas[i].value = random;
+
+            };
+        
+            var radios = document.getElementByName("par");
+
+            var radios = document.getElementByName("impar");
+
+            radios1.onclick = function(){
+
+            if (this.checked) {
+                var cajas = document.getElementsByName("num");
+                var suma = parseInt(cajas[2].value) + parseInt(cajas[4].value);
+                document.getElementById("resultado").innerText = suma;
+            } else {
+                var cajas = document.getElementsByName("num");
+                var suma = parseInt(cajas[1].value) + parseInt(cajas[3].value);
+                document.getElementById("resultado").innerText = suma;
+
+            }
+        }
+        }
+    </script>
+</body>
+
+</html>

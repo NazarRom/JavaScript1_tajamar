@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Document</title>
+</head>
+
+<body>
+    <labe>número 1</labe>
+    <input type="text" id="caja1">
+
+    <labe>número 2</labe>
+    <input type="text" id="caja2">
+
+
+    <h1>tabla multiplicar</h1>
+    <label>introduce un número</label>
+    <input type="text" id="cajanumero">
+    <button type="button" onclick="mostrarTabla()">mostrar tabla</button>
+    <table border="1" id="tabla"></table>
+
+
+    <button onclick="sumarNumeros()"> sumarNumeros </button>
+    <h1 style="color:blue" id="resultado"></h1>
+    <button onclick="mostrarSaludo()"> saludo </button>
+
+</body>
+<script>
+    function mostrarTabla(){
+        var caja = document.getElementById("cajanumero");
+        var numero = parseInt(caja.value);
+        console.log("numero" + numero);
+        var html = "";
+        //REALIZAMOS UN BUCLE DE 1 A 10 
+        for (var i = 1; i <=10; i++){
+            var resultado = numero * i;
+            var operacion = numero + " * " + i;
+            html += "<tr>";
+            html += "<td>" + operacion + "</td>";
+            html += "<td>" + resultado + "</td>";
+            html += "</tr>";
+        }
+        document.getElementById("tabla").innerHTML = html;
+    }
+    function sumarNumeros() {
+        var caja1 = document.getElementById("caja1");
+        var caja2 = document.getElementById("caja2");
+        //Debemos realizar la conversion
+        //parseFloat(valor)
+        //parseInt(valor)
+        var numero1 = parseInt(caja1.value);
+        var numero2 = parseInt(caja2.value);
+        var h1 = document.getElementById("resultado");
+        var suma = numero1 + numero2;
+        h1.innerText = "la suma es " + suma;
+        //si el numero es positivo, lo ponemos en verde
+        //negativo en rojo
+        if (suma > 0) {
+            //positivo
+            h1.style.backgroundColor = "green";
+        } else if (suma < 0) {
+            //negativo
+            h1.style.backgroundColor = "red";
+        } else {
+            h1.style.backgroundColor = "yellow";
+            //valor zero
+        }
+    }
+    function mostrarSaludo() {
+        //comentarios
+        alert("mensaje");
+        console.log("Preferiblemente consola desarrollo");
+    }
+</script>
+
+</html>

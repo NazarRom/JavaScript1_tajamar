@@ -39,21 +39,27 @@
 
             };
         }
- //hola desde casa 2
-        var radios = document.getElementById("par");
-        var radios2 = document.getElementById("impar");
+        //hola desde casa 2
+        var radios = document.getElementById("impar");
+        var radios2 = document.getElementById("par");
 
         radios.addEventListener("click", function () {
 
             if (this.checked) {
-                var cajas = document.getElementsByName("num").value;
-                var suma = parseInt(cajas[1].value) + parseInt(cajas[3].value);
+                var caja1 = document.getElementById("caja1");
+                var caja3 = document.getElementById("caja3");
+                var suma = parseInt(caja1.value) + parseInt(caja3.value);
                 document.getElementById("resultado").innerText = suma;
-            } else {
-                var cajas = document.getElementsByName("num").value;
-                var suma = parseInt(cajas[0].value) + parseInt(cajas[2].value);
-                document.getElementById("resultado").innerText = suma;
+            }
+        });
 
+        radios2.addEventListener("click", function () {
+
+            if (this.checked) {
+                var caja2 = document.getElementById("caja2");
+                var caja4 = document.getElementById("caja4");
+                var suma = parseInt(caja2.value) + parseInt(caja4.value);
+                document.getElementById("resultado").innerText = suma;
             }
         });
 

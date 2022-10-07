@@ -38,25 +38,26 @@
                 cajas[i].value = random;
 
             };
-        //prueba git prueba dos
-            var radios = document.getElementByName("par");
+        }
 
-            var radios = document.getElementByName("impar");
+        var radios = document.getElementById("par");
+        var radios2 = document.getElementById("impar");
 
-            radios1.onclick = function(){
+        radios.addEventListener("click", function () {
 
             if (this.checked) {
-                var cajas = document.getElementsByName("num");
-                var suma = parseInt(cajas[2].value) + parseInt(cajas[4].value);
+                var cajas = document.getElementsByName("num").value;
+                var suma = parseInt(cajas[1].value) + parseInt(cajas[3].value);
                 document.getElementById("resultado").innerText = suma;
             } else {
-                var cajas = document.getElementsByName("num");
-                var suma = parseInt(cajas[1].value) + parseInt(cajas[3].value);
+                var cajas = document.getElementsByName("num").value;
+                var suma = parseInt(cajas[0].value) + parseInt(cajas[2].value);
                 document.getElementById("resultado").innerText = suma;
 
             }
-        }
-        }
+        });
+
+
     </script>
 </body>
 
